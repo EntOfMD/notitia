@@ -7,6 +7,6 @@ const express = require('express'),
 app.use(express.static(www));
 console.log(`serving ${www}`);
 app.get('*', (req, res) => {
-   res.send(`testing`);
+   res.send({hi:'there'});
 });
 app.listen(port, () => console.log(`listening on http://localhost:${port}`));
