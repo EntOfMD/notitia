@@ -1,38 +1,19 @@
 const express = require('express'),
-	passport = require('passport'),
-	GoogleStrategy = require('passport-google-oauth20').Strategy,
-	keys = require('./config/keys'),
-	app = express(),
+	morgan = require('morgan'),
+	mongoose = require('mongoose');
+
+const app = express(),
 	PORT = process.env.PORT || 3000,
-	www = process.env.WWW || './',
-	morgan = require('morgan');
+	www = process.env.WWW || './';
 
-passport.use(
-	new GoogleStrategy(
-		{
-			clientID: keys.googleClientID,
-			clientSecret: keys.googleClientSecret,
-			callbackURL: '/auth/google/callback',
-		},
-		(accessToken, refreshToken, profile, done) => {
-			console.log(`${accessToken}`);
-			console.log(`${refreshToken}`);
-			console.log(profile);
-		}
-	)
-);
-
-app.get('/auth/google/callback', passport.authenticate('google'));
-
-app.get(
-	'/auth/google',
-	passport.authenticate('google', {
-		scope: ['profile', 'email'],
-	})
-);
+passportConfig = require('./services/passport'); //nothing is being imported, we just want the file to be run, so we don't need to assign it.
+require('./routes/authRoutes')(app); //immediately use the import
 
 app.use(morgan('dev'));
 app.use(express.static(www));
-console.log(`serving ${www}`);
 
-app.listen(PORT, () => console.log(`listening on http://localhost:${PORT}`));
+console.log(`serving ${www}`);
+app.listen(PORT, err => {
+	if (err) throw err;
+	console.log(`listening on http://localhost:${PORT}`);
+});
