@@ -2,23 +2,34 @@
 const express = require('express'),
 	morgan = require('morgan'),
 	mongoose = require('mongoose'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+	cookieSession = require('cookie-session'),
+	passport = require('passport');
 const app = express();
 
 //file imports
 const keys = require('./config/keys'),
 	config = require('./config');
+
+//middlewares, env, dev tools
+app.use(bodyParser.json());
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000, //a month in milliseconds
+		keys: [keys.cookieKey],
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(morgan('dev'));
+app.use(express.static(config.www));
+app.use(config.www, express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Passport
 require('./models/User');
 require('./services/passport'); //nothing is being imported, we just want the file to be run, so we don't need to assign it.
 require('./routes/authRoutes')(app); //immediately pass the app thru the import
-
-//middlewares, env, dev tools
-app.use(morgan('dev'));
-app.use(express.static(config.www));
-app.use(config.www, express.static(__dirname + '/public'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 //database
 mongoose.connect(
