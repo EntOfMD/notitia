@@ -21,7 +21,9 @@ module.exports = app => {
   });
 
   app.get("/api/logout", (req, res) => {
+    let name = req.user.name;
     req.logout();
+    console.log(`${name} has been logged out!`);
     res.send(req.user);
   });
 };
