@@ -1,23 +1,23 @@
 //module imports
 const express = require('express'),
-  morgan = require('morgan'),
-  mongoose = require('mongoose'),
-  bodyParser = require('body-parser'),
-  cookieSession = require('cookie-session'),
-  passport = require('passport');
+	morgan = require('morgan'),
+	mongoose = require('mongoose'),
+	bodyParser = require('body-parser'),
+	cookieSession = require('cookie-session'),
+	passport = require('passport');
 const app = express();
 
 //file imports
 const keys = require('./config/keys'),
-  config = require('./config');
+	config = require('./config');
 
 //middlewares, env, dev tools
 app.use(bodyParser.json());
 app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000, //a month in milliseconds
-    keys: [keys.cookieKey]
-  })
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000, //a month in milliseconds
+		keys: [keys.cookieKey],
+	})
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -33,20 +33,16 @@ require('./routes/authRoutes')(app); //immediately pass the app thru the import
 
 //database
 mongoose.connect(
-  keys.getDbConnectionString(),
-  err => {
-    if (err) throw err;
-    console.log(`Successfully connected to database.`);
-  }
+	keys.getDbConnectionString(),
+	err => {
+		if (err) throw err;
+		console.log(`Successfully connected to database.`);
+	}
 );
 
 app.listen(config.PORT, err => {
-  if (err) throw err;
-  var date = new Date();
-  date.setTime(Date.now());
-  console.log(
-    `${date.toLocaleTimeString()}\nServing on ${
-      config.www
-    }\nListening on port ${config.PORT}`
-  );
+	if (err) throw err;
+	var date = new Date();
+	date.setTime(Date.now());
+	console.log(`${date.toLocaleTimeString()}\nServing on ${config.www}\nListening on port ${config.PORT}`);
 });
