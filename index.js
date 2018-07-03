@@ -1,6 +1,5 @@
 //module imports
 const express = require('express'),
-	morgan = require('morgan'),
 	mongoose = require('mongoose'),
 	bodyParser = require('body-parser'),
 	cookieSession = require('cookie-session'),
@@ -21,7 +20,6 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(morgan('dev'));
 app.use(express.static(config.www));
 app.use(config.www, express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));

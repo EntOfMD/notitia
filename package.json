@@ -27,8 +27,5 @@
 		"mongoose": "^5.1.5",
 		"passport": "^0.4.0",
 		"passport-google-oauth20": "^1.0.0"
-	},
-	"devDependencies": {
-		"morgan": "^1.9.0"
 	}
 }
