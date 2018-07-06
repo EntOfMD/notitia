@@ -21,7 +21,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(config.www));
-app.use(config.www, express.static(__dirname + '/public'));
+// app.use(config.www, express.static(__dirname + '/client/public'));
+// app.use('/', express.static(__dirname + '/client/build'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport
