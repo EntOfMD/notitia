@@ -1,9 +1,15 @@
 {
 	"name": "client",
-	"version": "0.1.0",
+	"version": "0.1.2",
 	"private": true,
 	"proxy": {
 		"/auth/google": {
+			"target": "http://localhost:5000"
+		},
+		"/api/current_user": {
+			"target": "http://localhost:5000"
+		},
+		"/": {
 			"target": "http://localhost:5000"
 		}
 	},

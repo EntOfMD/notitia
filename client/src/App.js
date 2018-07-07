@@ -44,6 +44,7 @@ class App extends Component {
 						molestiae, mollitia architecto debitis dolores fugiat optio deleniti nisi commodi iusto?
 						Suscipit sit id deleniti doloremque iure velit, exercitationem consequuntur sed ut quidem optio
 						tenetur pariatur veniam ex fugit libero! Laudantium vero et deleniti itaque nemo distinctio qui.
+						<iframe src="/api/current_user" />
 					</p>
 				</body>
 			</div>
