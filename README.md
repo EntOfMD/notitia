@@ -13,6 +13,10 @@ This app uses credit-based email sending, which the developer can charge however
 
 ---
 
+## Live Preview
+
+-   Visit [Notitia - Age of Information](https://floating-retreat-89930.herokuapp.com/)\* hosted on Heroku
+
 ## How to install?
 
 -   Start off with `npm install` in your console, and let it install necessary packages in `package.json` file to your machine.
@@ -24,17 +28,7 @@ This app uses credit-based email sending, which the developer can charge however
 
 -   There are currently two files/folders omitted from git due to large size and security concerns. Once you run `npm install`, npm will create the `node_modules` folder for you.
 
--   For the `keys.js`, I'll give a template for you to edit:
-
-```
-module.exports = {
-	googleClientID: "your_google_clientID,
-	googleClientSecret: "your secret key",
-	notitiaDevDB: () => {
-		return "mongodb://URI";
-	},
-};
-```
+###** more update to come soon **
 
 Save it in your `config` folder and name it `keys.js`
 
