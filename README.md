@@ -16,6 +16,7 @@ This app uses credit-based email sending, which the developer can charge however
 ## Live Preview
 
 -   Visit [Notitia - Age of Information](https://floating-retreat-89930.herokuapp.com/)\* hosted on Heroku
+-   Links: [Login](https://floating-retreat-89930.herokuapp.com/), [Current User](https://floating-retreat-89930.herokuapp.com/api/current_user), and [Logout](https://floating-retreat-89930.herokuapp.com/api/logout)
 
 ## How to install?
 
