@@ -8,7 +8,7 @@
 		"npm": "6.1.0"
 	},
 	"scripts": {
-		"start": "concurrently \"npm run server\" \"npm run client\"",
+		"start": "node index.js",
 		"server": "clear\nnodemon index.js",
 		"client": "npm run start --prefix client",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
