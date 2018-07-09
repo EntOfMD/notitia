@@ -33,6 +33,7 @@ require('./routes/authRoutes')(app); //immediately pass the app thru the import
 //database
 mongoose.connect(
 	keys.getDbConnectionString(),
+	{ useNewUrlParser: true },
 	err => {
 		if (err) throw err;
 		console.log(`Successfully connected to database.`);
