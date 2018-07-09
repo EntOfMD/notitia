@@ -4,16 +4,21 @@ class Header extends Component {
 	render() {
 		return (
 			<nav>
-				<div className="nav-wrapper">
+				<div className="nav-wrapper cyan darken-2">
 					<a className="center brand-logo">Notitia - Age of Information</a>
 					<ul className="left hide-on-med-and-down">
 						<li>
 							<a href="/">Home</a>
 						</li>
 					</ul>
-					<ul className="right hide-on-med-and-down">
+					<ul className="right hide-on-med-and-down ">
 						<li>
-							<a href="/auth/google">Login with Google</a>
+							<a href="">Hello: Ash Ketchum</a>
+						</li>
+						<li>
+							<a className="deep-orange darken-4" href="/auth/google">
+								Login with Google
+							</a>
 						</li>
 					</ul>
 				</div>
