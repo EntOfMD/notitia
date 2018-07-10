@@ -10,7 +10,7 @@ class Header extends Component {
 				return (
 					<li>
 						<a className="deep-orange darken-4 waves-effect waves-light btn" href="/auth/google">
-							<i className="material-icons left">lock_open</i>Login with Google
+							<i className="material-icons left">enhanced_encryption</i>Login with Google
 						</a>
 					</li>
 				);
@@ -19,7 +19,7 @@ class Header extends Component {
 				return (
 					<li>
 						<a className="indigo waves-effect waves-light btn" href="/api/logout">
-							<i className="material-icons left">lock</i>Logout
+							<i className="material-icons left">exit_to_app</i>Logout
 						</a>
 					</li>
 				);
@@ -30,8 +30,10 @@ class Header extends Component {
 		return (
 			<nav>
 				<div className="nav-wrapper cyan darken-2">
-					<a className="center brand-logo">Notitia</a>
-					<ul className="left hide-on-med-and-down">
+					<a className="center brand-logo" href="/">
+						Notitia
+					</a>
+					<ul className="left">
 						<li>
 							<a href="/">Home</a>
 						</li>

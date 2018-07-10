@@ -33,7 +33,6 @@ passport.use(
 					}
 				}); */
 			if (existingUser) {
-				console.log(`${existingUser.name} is already registered!`);
 				return done(null, existingUser);
 			}
 
@@ -46,7 +45,6 @@ passport.use(
 				gender: profile._json.gender || profile.gender,
 				profile: profile._json,
 			}).save();
-			console.log(`${user.displayName} has been registered!`);
 			done(null, user);
 		}
 	)
