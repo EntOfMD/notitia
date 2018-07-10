@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import Header from './Header';
+import Landing from './Landing';
 const Dashboard = () => <h2>This will show signed in users their dashboard and info</h2>;
 const SurveyNew = () => <h2>This page will show signed in users to do a new survey</h2>;
-const Landing = () => <h2>Landing Page! this will include sales pitch and data</h2>;
 
 class App extends Component {
 	componentDidMount() {
