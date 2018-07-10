@@ -1,30 +1,50 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Header extends Component {
+	renderContent() {
+		switch (this.props.auth) {
+			case null: //waiting for the connection
+				return;
+			case false: //user is NOT logged in
+				return (
+					<li>
+						<a className="deep-orange darken-4 waves-effect waves-light btn" href="/auth/google">
+							<i className="material-icons left">lock_open</i>Login with Google
+						</a>
+					</li>
+				);
+			default:
+				//user logged in
+				return (
+					<li>
+						<a className="indigo waves-effect waves-light btn" href="/api/logout">
+							<i className="material-icons left">lock</i>Logout
+						</a>
+					</li>
+				);
+		}
+	}
+
 	render() {
 		return (
 			<nav>
 				<div className="nav-wrapper cyan darken-2">
-					<a className="center brand-logo">Notitia - Age of Information</a>
+					<a className="center brand-logo">Notitia</a>
 					<ul className="left hide-on-med-and-down">
 						<li>
 							<a href="/">Home</a>
 						</li>
 					</ul>
-					<ul className="right hide-on-med-and-down ">
-						<li>
-							<a href="">Hello: Ash Ketchum</a>
-						</li>
-						<li>
-							<a className="deep-orange darken-4" href="/auth/google">
-								Login with Google
-							</a>
-						</li>
-					</ul>
+					<ul className="right">{this.renderContent()}</ul>
 				</div>
 			</nav>
 		);
 	}
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+	return { auth };
+}
+
+export default connect(mapStateToProps)(Header);

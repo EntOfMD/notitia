@@ -20,6 +20,6 @@ module.exports = app => {
 		let name = req.user.name;
 		req.logout();
 		console.log(`${name} has been logged out!`);
-		res.send(req.user);
+		res.redirect('/');
 	});
 };
