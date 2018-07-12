@@ -25,6 +25,7 @@
 	},
 	"homepage": "https://github.com/EntOfMD/notitia#readme",
 	"dependencies": {
+		"body-parser": "^1.18.3",
 		"concurrently": "^3.6.0",
 		"cookie-session": "^2.0.0-beta.3",
 		"express": "^4.16.3",
@@ -33,6 +34,7 @@
 		"passport-google-oauth20": "^1.0.0",
 		"react-redux": "^5.0.7",
 		"react-router-dom": "^4.3.1",
-		"redux": "^4.0.0"
+		"redux": "^4.0.0",
+		"stripe": "^6.2.1"
 	}
 }

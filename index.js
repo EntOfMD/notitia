@@ -18,17 +18,17 @@ app.use(
 		keys: [keys.cookieKey],
 	})
 );
-app.use(passport.initialize());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize()); //make sure passport.initilize and .session are ABOVE the routes.
 app.use(passport.session());
 app.use(express.static(config.www));
-// app.use(config.www, express.static(__dirname + '/client/public'));
-// app.use('/', express.static(__dirname + '/client/build'));
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport
 require('./models/User');
 require('./services/passport'); //nothing is being imported, we just want the file to be run, so we don't need to assign it.
 require('./routes/authRoutes')(app); //immediately pass the app thru the import
+require('./routes/billingRoutes')(app);
 
 //database
 mongoose.connect(
