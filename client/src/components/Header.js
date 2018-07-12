@@ -1,29 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
 	renderContent() {
 		switch (this.props.auth) {
 			case null: //waiting for the connection
-				return;
+				return [];
 			case false: //user is NOT logged in
-				return (
-					<li>
-						<a className="deep-orange darken-4 waves-effect waves-light btn" href="/auth/google">
-							<i className="material-icons left">enhanced_encryption</i>Login with Google
+				return [
+					<li key="1">
+						<a
+							className="deep-orange darken-4 waves-effect waves-light btn"
+							style={{ borderRadius: '4px' }}
+							href="/auth/google"
+						>
+							<i className="material-icons left">enhanced_encryption</i>
+							<span>Login with Google</span>
 						</a>
-					</li>
-				);
+					</li>,
+				];
 			default:
 				//user logged in
-				return (
-					<li>
-						<a className="indigo waves-effect waves-light btn" href="/api/logout">
-							<i className="material-icons left">exit_to_app</i>Logout
+				return [
+					<li key="2">
+						<Payments />
+					</li>,
+					<li key="3">
+						<a
+							className=" waves-effect waves-light btn"
+							style={{ borderRadius: '4px', backgroundColor: '#0800a7' }}
+							href="/api/logout"
+						>
+							<i className="material-icons left" style={{ marginRight: 5 }}>
+								exit_to_app
+							</i>Logout
 						</a>
-					</li>
-				);
+					</li>,
+				];
 		}
 	}
 
@@ -31,11 +46,17 @@ class Header extends Component {
 		return (
 			<nav>
 				<div className="nav-wrapper cyan darken-2">
+					{/*color is either #0097a7 or cyan with darken-2  */}
 					<Link to={this.props.auth ? '/app/dashboard' : '/'} className="center brand-logo">
 						Notitia
 					</Link>
 					<ul className="left">
-						<Link to={'/'}>Home</Link>
+						<li>
+							<Link to={'/'}>Home</Link>
+						</li>
+						<li>
+							<Link to={'/app/pricing'}>Pricing</Link>
+						</li>
 					</ul>
 					<ul className="right">{this.renderContent()}</ul>
 				</div>
