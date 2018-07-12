@@ -9,6 +9,7 @@ const userSchema = new Schema({
 	raw: [],
 	gender: [],
 	profile: [],
+	credits: { type: Number, default: 0 },
 });
 
 mongoose.model('users', userSchema);
