@@ -5,7 +5,10 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-const Dashboard = () => <h2>This will show signed in users their dashboard and info</h2>;
+import Dashboard from './Dashboard';
+import Pricing from './Pricing';
+import Footer from './Footer';
+
 const SurveyNew = () => <h2>This page will show signed in users to do a new survey</h2>;
 
 class App extends Component {
@@ -24,6 +27,8 @@ class App extends Component {
 						<Route path="/app/dashboard" component={Dashboard} />
 						<Route path="/app/survey/new" component={SurveyNew} />
 						<Route exact path="/app/survey" component={Dashboard} />
+						<Route path="/app/pricing" component={Pricing} />
+						<Footer />
 					</div>
 				</BrowserRouter>
 			</div>
