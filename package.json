@@ -10,7 +10,7 @@
 	"scripts": {
 		"start": "node index.js",
 		"heroku-postbuild": "cd client && npm install && npm run build",
-		"server": "clear\nnodemon index.js",
+		"server": "node index.js",
 		"client": "npm run start --prefix client",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
