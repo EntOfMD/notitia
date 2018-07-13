@@ -6,9 +6,6 @@ const userSchema = new Schema({
 	displayName: { type: String },
 	name: [],
 	emails: [],
-	raw: [],
-	gender: [],
-	profile: [],
 	credits: { type: Number, default: 0 },
 });
 
