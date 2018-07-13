@@ -7,10 +7,10 @@ class Header extends Component {
 	renderContent() {
 		switch (this.props.auth) {
 			case null: //waiting for the connection
-				return [];
+				return;
 			case false: //user is NOT logged in
 				return [
-					<li key="1">
+					<li key="403">
 						<a
 							className="deep-orange darken-4 waves-effect waves-light btn"
 							style={{ borderRadius: '4px' }}
@@ -24,10 +24,13 @@ class Header extends Component {
 			default:
 				//user logged in
 				return [
-					<li key="2">
+					<li key="3" style={{ margin: '0 20px', fontWeight: '900', fontSize: '1.1em' }}>
+						Credits: <span className="red-text">{this.props.auth.credits}</span>
+					</li>,
+					<li key="1">
 						<Payments />
 					</li>,
-					<li key="3">
+					<li key="2">
 						<a
 							className=" waves-effect waves-light btn"
 							style={{ borderRadius: '4px', backgroundColor: '#0800a7' }}
