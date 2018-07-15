@@ -5,10 +5,10 @@ class Footer extends Component {
 		return (
 			<footer className="footer-copyright cyan darken-2 black-text">
 				<div style={{ textAlign: 'center' }} className="container">
-					{'This is the footer'}
-					<p style={{ fontSize: '1.3em' }}>Notitia - Age of Information</p>
+					{' '}
+					{/* <p style={{ fontSize: '1.3em' }}>Notitia - Age of Information</p> */}
 					<p>
-						2018 Made with
+						Made with
 						<i className="material-icons" style={{ fontSize: 'smaller' }}>
 							{' '}
 							favorite
@@ -18,6 +18,16 @@ class Footer extends Component {
 							{' '}
 							EntOfMD{' '}
 						</a>
+						<br />
+						<div>
+							<p>
+								2018 Claus & Co. All rights reserved. <br />Pricing subjected to change without notice.
+								<br />
+								<a className="black-text" href="/">
+									Terms and Conditions
+								</a>
+							</p>
+						</div>
 					</p>
 				</div>
 			</footer>
