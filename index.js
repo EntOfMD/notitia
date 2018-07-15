@@ -25,8 +25,10 @@ app.use(passport.session());
 app.use(express.static(config.www));
 
 // Passport
+//nothing is being imported, we just want the file to be run, so we don't need to assign it.
 require('./models/User');
-require('./services/passport'); //nothing is being imported, we just want the file to be run, so we don't need to assign it.
+require('./models/Admins');
+require('./services/passport');
 require('./routes/authRoutes')(app); //immediately pass the app thru the import
 require('./routes/billingRoutes')(app);
 
