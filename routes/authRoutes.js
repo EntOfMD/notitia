@@ -19,4 +19,12 @@ module.exports = app => {
 		req.logout();
 		res.redirect('/');
 	});
+
+	app.get('/app/dev', (req, res) => {
+		if (req.user) {
+			res.send('/app/dev/dashboard');
+		} else {
+			return res.status(403).send({ error: 'You must be logged in' }), res.redirect('/');
+		}
+	});
 };
