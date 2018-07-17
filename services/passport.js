@@ -25,13 +25,6 @@ passport.use(
 		},
 		async (err, accessToken, refreshToken, profile, done) => {
 			const existingUser = await User.findOne({ googleId: profile.id });
-			/* 	const rEmail = [];
-				profile.emails.map(obj => {
-					for (var x = 0; x <= rEmail.length; x++) {
-						rEmail[x][obj.value] = obj.type;
-						console.log(rEmail);
-					}
-				}); */
 			if (existingUser) {
 				return done(null, existingUser);
 			}
