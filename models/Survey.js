@@ -9,6 +9,9 @@ const surveySchema = new Schema({
 	recipients: [RecipientSchema],
 	yes: { type: Number, default: 0 },
 	no: { type: Number, default: 0 },
+	_user: { type: Schema.Types.ObjectId, ref: 'User' }, //this assigns survey to specific user. by convention, the '_' prefix means it's a relational field
+	dateSent: { type: Date },
+	lastResponded: { type: Date },
 });
 
 mongoose.model('surveys', surveySchema);
