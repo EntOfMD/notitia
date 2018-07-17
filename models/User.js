@@ -6,7 +6,7 @@ const userSchema = new Schema({
 	googleId: { type: Number },
 	displayName: { type: String },
 	name: [],
-	emails: [],
+	emails: [String],
 	credits: { type: Number, default: 0 },
 	role: { type: String, default: 'consumer' },
 });
