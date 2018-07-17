@@ -31,6 +31,7 @@ require('./models/Survey');
 require('./services/passport');
 require('./routes/authRoutes')(app); //immediately pass the app thru the import
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 //production
 if (process.env.NODE_ENV === 'production') {
