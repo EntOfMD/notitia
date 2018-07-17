@@ -11,7 +11,6 @@ const keys = require('./config/keys'),
 	config = require('./config');
 
 //middlewares, env, dev tools
-app.use(bodyParser.json());
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000, //a month in milliseconds
@@ -25,9 +24,10 @@ app.use(passport.session());
 app.use(express.static(config.www));
 
 // Passport
-//nothing is being imported, we just want the file to be run, so we don't need to assign it.
+//nothing is being imported, we just want the file parsed, so we don't need to assign it.
 require('./models/User');
 require('./models/Admins');
+require('./models/Survey');
 require('./services/passport');
 require('./routes/authRoutes')(app); //immediately pass the app thru the import
 require('./routes/billingRoutes')(app);
@@ -47,8 +47,11 @@ mongoose.connect(
 	keys.getDbConnectionString(),
 	{ useNewUrlParser: true },
 	err => {
-		if (err) throw err;
-		console.log(`Successfully connected to database.`);
+		if (err) {
+			throw err;
+		} else {
+			console.log(`Successfully connected to database.`);
+		}
 	}
 );
 
