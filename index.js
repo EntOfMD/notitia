@@ -35,6 +35,7 @@ require('./routes/billingRoutes')(app);
 //production
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
+	console.log(`Running on Production`);
 
 	const path = require('path');
 	app.get('*', (req, res) => {
@@ -56,8 +57,11 @@ mongoose.connect(
 );
 
 app.listen(config.PORT, err => {
-	if (err) throw err;
-	var date = new Date();
-	date.setTime(Date.now());
-	console.log(`${date.toLocaleTimeString()}\nServing on ${config.www}\nListening on port ${config.PORT}`);
+	if (err) {
+		throw err;
+	} else {
+		var date = new Date();
+		date.setTime(Date.now());
+		console.log(`${date.toLocaleTimeString()}\nListening on port ${config.PORT}`);
+	}
 });
