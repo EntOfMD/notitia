@@ -1,4 +1,9 @@
-----
+#NOTE
+
+## I am taking a break for now from this project because one of the crucial API's got split. Until I find a solution, I won't keep it updated. Thank you
+
+---
+
 # Notitia - Age of Information
 
 ### Are you a product/business owner who has seen a drop of users on your business? Wait no longer!
