@@ -25,7 +25,7 @@
 	},
 	"homepage": "https://github.com/EntOfMD/notitia#readme",
 	"dependencies": {
-		"@sendgrid/client": "^6.3.0",
+		"@sendgrid/client": "^7.2.5",
 		"@sendgrid/helpers": "^6.3.0",
 		"@sendgrid/mail": "^6.3.1",
 		"body-parser": "^1.18.3",
